@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Nunito:wght@700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Lato", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Nunito", sans-serif;
+
+  --color-brand-blue: #00008F;
+  --color-brand-navy: #0A0A4A;
+  --color-brand-gold: #A17339;
+  --color-brand-surface: #FBF9F6;
+  --color-brand-text: #0A0A4A;
+
+  --radius-brand: 4px;
+
+  --spacing-stack-sm: 12px;
+  --spacing-stack-md: 24px;
+  --spacing-stack-lg: 48px;
+  --spacing-stack-xl: 80px;
+
+  --container-max: 1280px;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-surface text-brand-text font-sans antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .max-container {
+    @apply max-w-[var(--container-max)] mx-auto px-5 md:px-16;
+  }
+}

@@ -1,0 +1,9 @@
+/**
+ * @license
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+export const IMAGES = {
+  HORIZONTAL_LOGO: "https://lh3.googleusercontent.com/aida/ADBb0uiT74bVGbpBUYafa2B0Y-shiscJPa3gdD6LyCLy6b4BWt7DqtBYAKCP8PVtGNniv4nS9Eza4vhY4YX9Wx8Kru34VGxnhoL_6koT7yXW_lGz6y0D_4dbogu2h-3XykcK2ExhjmU1tOJTn7l4lGi_ZqR0eyb2pOrUNFa2rQ4FvG6uEH1FNMmgxJNgV-x6NpvM06HzL_pD_BUCYJhau1w8kGl8_TSWv3ef70prybPKUawJVJLiNSxAbnLdik3hex_9J3lVj9NGOrMM",
+  STACKED_LOGO: "https://lh3.googleusercontent.com/aida/ADBb0ujYpr0EIElEUh9DhfHU5lmQklciavr_buyZKNzN8zDikiZPmhbJYyOwaWjWej1GkQypUDdjNwi4V6nqK-3_4O5bd9jefaoFX-RSBT1AN4HKcySHj7q73WDMK26AotDNokjK6iobUg9xU8rcn3fUwPzalZ9JZk4HNZ0kNej1Dn4yAsZFJA62jrkkgFao7wFMoGyaBoHKL_X5n-X7P8hG6425mMsYliujOjKRgxLq4j3nlURCYw-wzMyRQSwKAYK6bprHSozDDLJNGg"
+};
