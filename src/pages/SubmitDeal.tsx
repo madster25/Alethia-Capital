@@ -43,18 +43,34 @@ export default function SubmitDeal() {
 
           {/* Form Area */}
           <div className="lg:col-span-8 bg-white p-8 md:p-12 rounded-brand shadow-lg border border-brand-navy/10">
-            <form className="space-y-stack-lg">
+            <div className="mb-stack-lg border-b border-brand-navy/10 pb-6 text-center lg:text-left">
+              <p className="text-brand-blue font-bold text-lg mb-2">
+                Submit a transaction for review and our team will come back to you with a clear response.
+              </p>
+              <p className="text-brand-navy/60 font-medium">
+                All enquiries should be sent to <a href="mailto:info@alethiacapital.com.au" className="text-brand-gold hover:underline">info@alethiacapital.com.au</a>
+              </p>
+            </div>
+
+            <form className="space-y-stack-lg" onSubmit={(e) => {
+              e.preventDefault();
+              const formData = new FormData(e.currentTarget);
+              const name = formData.get('name');
+              const company = formData.get('company');
+              const body = `Name: ${name}\nCompany: ${company}\nTransaction details follow in email...`;
+              window.location.href = `mailto:info@alethiacapital.com.au?subject=New Deal Submission - ${name}&body=${encodeURIComponent(body)}`;
+            }}>
               {/* Section 1 */}
               <div className="space-y-stack-md">
                  <h3 className="text-xl font-bold text-brand-blue uppercase tracking-widest border-b border-brand-navy/10 pb-2">1. Your Details</h3>
                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                        <label className="text-xs font-bold uppercase tracking-wider text-brand-text/60">Full Name</label>
-                       <input type="text" className="w-full bg-brand-surface border border-brand-navy/10 rounded p-3 px-4 focus:border-brand-gold outline-none transition-colors" placeholder="John Doe" />
+                       <input name="name" type="text" className="w-full bg-brand-surface border border-brand-navy/10 rounded p-3 px-4 focus:border-brand-gold outline-none transition-colors" placeholder="John Doe" required />
                     </div>
                     <div className="space-y-2">
                        <label className="text-xs font-bold uppercase tracking-wider text-brand-text/60">Company</label>
-                       <input type="text" className="w-full bg-brand-surface border border-brand-navy/10 rounded p-3 px-4 focus:border-brand-gold outline-none transition-colors" placeholder="Firm Name" />
+                       <input name="company" type="text" className="w-full bg-brand-surface border border-brand-navy/10 rounded p-3 px-4 focus:border-brand-gold outline-none transition-colors" placeholder="Firm Name" required />
                     </div>
                     <div className="space-y-2">
                        <label className="text-xs font-bold uppercase tracking-wider text-brand-text/60">Email</label>
@@ -62,7 +78,7 @@ export default function SubmitDeal() {
                     </div>
                     <div className="space-y-2">
                        <label className="text-xs font-bold uppercase tracking-wider text-brand-text/60">Phone</label>
-                       <input type="tel" className="w-full bg-brand-surface border border-brand-navy/10 rounded p-3 px-4 focus:border-brand-gold outline-none transition-colors" placeholder="0400 000 000" />
+                       <input type="tel" className="w-full bg-brand-surface border border-brand-navy/10 rounded p-3 px-4 focus:border-brand-gold outline-none transition-colors" placeholder="0478 883 337" />
                     </div>
                  </div>
               </div>
@@ -91,11 +107,14 @@ export default function SubmitDeal() {
               </div>
 
               <div className="pt-stack-md">
-                 <button className="w-full bg-brand-blue text-white py-5 rounded-brand font-bold text-lg hover:shadow-lg transition-all active:scale-[0.98] uppercase tracking-widest">
+                 <button 
+                   type="submit"
+                   className="w-full bg-brand-blue text-white py-5 rounded-brand font-bold text-lg hover:shadow-lg transition-all active:scale-[0.98] uppercase tracking-widest"
+                 >
                     Submit Deal for Review →
                  </button>
                  <p className="text-center text-xs text-brand-text/50 mt-4 italic">
-                    All information is transmitted securely and held in strict confidence.
+                    Your email client will open with the details to info@alethiacapital.com.au
                  </p>
               </div>
             </form>

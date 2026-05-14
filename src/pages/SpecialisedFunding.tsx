@@ -32,17 +32,17 @@ export default function SpecialisedFunding() {
 
             <div className="flex flex-col lg:flex-row gap-6 w-full lg:w-auto">
               <Link 
-                to="/discuss-your-situation" 
+                to="/submit-a-deal" 
                 className="bg-brand-gold text-white px-6 md:px-10 py-4 md:py-5 rounded-brand font-bold text-base md:text-lg hover:shadow-lg hover:-translate-y-1 transition-all active:scale-95 text-center"
               >
                 Discuss Your Funding Requirement
               </Link>
-              <Link 
-                to="/submit-a-deal" 
+              <a 
+                href="mailto:info@alethiacapital.com.au?subject=Specialised Funding Enquiry" 
                 className="border-2 border-brand-blue text-white px-6 md:px-10 py-4 md:py-5 rounded-brand font-bold text-base md:text-lg hover:bg-brand-gold hover:border-brand-gold transition-all hover:-translate-y-1 active:scale-95 text-center"
               >
                 Submit an Enquiry
-              </Link>
+              </a>
             </div>
           </motion.div>
         </div>

@@ -16,6 +16,9 @@ import Home from "./pages/Home";
 import SpecialisedFunding from "./pages/SpecialisedFunding";
 import SubmitDeal from "./pages/SubmitDeal";
 import WhatWeFund from "./pages/WhatWeFund";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfUse from "./pages/TermsOfUse";
+import Disclaimer from "./pages/Disclaimer";
 
 // Helper to scroll to top on route change
 function ScrollToTop() {
@@ -45,6 +48,9 @@ export default function App() {
             <Route path="/submit-a-deal" element={<SubmitDeal />} />
             <Route path="/discuss-your-situation" element={<DiscussSituation />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/terms" element={<TermsOfUse />} />
+            <Route path="/disclaimer" element={<Disclaimer />} />
           </Routes>
         </main>
         <Footer />

@@ -28,7 +28,7 @@ export default function Contact() {
                  <span className="material-symbols-outlined text-brand-gold">mail</span>
                  <div>
                     <p className="text-xs font-bold text-brand-text/50 uppercase tracking-widest mb-1">General Enquiries</p>
-                    <a href="mailto:info@alethiacapital.com" className="text-brand-text font-bold hover:text-brand-gold transition-colors">info@alethiacapital.com</a>
+                    <a href="mailto:info@alethiacapital.com.au" className="text-brand-text font-bold hover:text-brand-gold transition-colors">info@alethiacapital.com.au</a>
                  </div>
                </div>
 
@@ -36,15 +36,15 @@ export default function Contact() {
                  <span className="material-symbols-outlined text-brand-gold">call</span>
                  <div>
                     <p className="text-xs font-bold text-brand-text/50 uppercase tracking-widest mb-1">Direct Line</p>
-                    <a href="tel:1300000000" className="text-brand-text font-bold hover:text-brand-gold transition-colors">1300 000 000</a>
+                    <a href="tel:0478883337" className="text-brand-text font-bold hover:text-brand-gold transition-colors">04 7888 3337</a>
                  </div>
                </div>
 
                <div className="flex items-start gap-4 group">
                  <span className="material-symbols-outlined text-brand-gold">location_on</span>
                  <div>
-                    <p className="text-xs font-bold text-brand-text/50 uppercase tracking-widest mb-1">Offices</p>
-                    <p className="text-brand-text font-bold">Sydney & Melbourne, Australia</p>
+                    <p className="text-xs font-bold text-brand-text/50 uppercase tracking-widest mb-1">Office</p>
+                    <p className="text-brand-text font-bold">Sydney, Australia</p>
                  </div>
                </div>
              </div>
@@ -58,20 +58,29 @@ export default function Contact() {
 
           <div className="lg:col-span-7 bg-white p-10 rounded-brand shadow-sm border border-brand-navy/10">
             <h3 className="text-2xl text-brand-blue mb-8">Send a Message</h3>
-            <form className="space-y-6">
+            <form 
+              className="space-y-6"
+              onSubmit={(e) => {
+                e.preventDefault();
+                const formData = new FormData(e.currentTarget);
+                const name = formData.get('fullName');
+                const body = `Name: ${name}\n\nMessage follows...`;
+                window.location.href = `mailto:info@alethiacapital.com.au?subject=Contact Message - ${name}&body=${encodeURIComponent(body)}`;
+              }}
+            >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                  <div className="space-y-2">
                     <label className="text-xs font-bold uppercase tracking-widest text-brand-text/60">Full Name</label>
-                    <input type="text" className="w-full bg-brand-surface border border-brand-navy/10 rounded p-3 px-4 focus:border-brand-gold outline-none transition-colors" />
+                    <input name="fullName" type="text" className="w-full bg-brand-surface border border-brand-navy/10 rounded p-3 px-4 focus:border-brand-gold outline-none transition-colors" required />
                  </div>
                  <div className="space-y-2">
                     <label className="text-xs font-bold uppercase tracking-widest text-brand-text/60">Company</label>
-                    <input type="text" className="w-full bg-brand-surface border border-brand-navy/10 rounded p-3 px-4 focus:border-brand-gold outline-none transition-colors" />
+                    <input name="company" type="text" className="w-full bg-brand-surface border border-brand-navy/10 rounded p-3 px-4 focus:border-brand-gold outline-none transition-colors" />
                  </div>
               </div>
               <div className="space-y-2">
                  <label className="text-xs font-bold uppercase tracking-widest text-brand-text/60">Email Address</label>
-                 <input type="email" className="w-full bg-brand-surface border border-brand-navy/10 rounded p-3 px-4 focus:border-brand-gold outline-none transition-colors" />
+                 <input name="email" type="email" className="w-full bg-brand-surface border border-brand-navy/10 rounded p-3 px-4 focus:border-brand-gold outline-none transition-colors" required />
               </div>
               <div className="space-y-2">
                  <label className="text-xs font-bold uppercase tracking-widest text-brand-text/60">Message</label>

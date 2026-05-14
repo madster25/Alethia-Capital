@@ -140,7 +140,7 @@ export default function Home() {
             <Link to="/submit-a-deal" className="bg-brand-blue text-white px-10 py-5 rounded-brand font-bold text-lg hover:shadow-lg transition-all active:scale-95 text-center">
               Submit a Deal →
             </Link>
-            <Link to="/contact" className="border-2 border-brand-blue text-brand-blue px-10 py-5 rounded-brand font-bold text-lg hover:bg-brand-blue hover:text-white transition-all active:scale-95 text-center">
+            <Link to="/submit-a-deal" className="border-2 border-brand-blue text-brand-blue px-10 py-5 rounded-brand font-bold text-lg hover:bg-brand-blue hover:text-white transition-all active:scale-95 text-center">
               Discuss Your Situation →
             </Link>
           </div>

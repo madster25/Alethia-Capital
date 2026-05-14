@@ -92,12 +92,12 @@ export default function ForBorrowers() {
         <div className="max-container">
           <h2 className="text-2xl font-bold text-brand-blue mb-8">Ready to Discuss Your Scenario?</h2>
           <div className="flex flex-col sm:flex-row justify-center gap-6">
-            <Link to="/discuss-your-situation" className="bg-brand-gold text-white px-10 py-5 rounded-brand font-bold text-lg hover:shadow-lg transition-all active:scale-95 text-center">
+            <Link to="/submit-a-deal" className="bg-brand-gold text-white px-10 py-5 rounded-brand font-bold text-lg hover:shadow-lg transition-all active:scale-95 text-center">
               Discuss Your Situation →
             </Link>
-            <button className="border-2 border-brand-blue text-brand-blue px-10 py-5 rounded-brand font-bold text-lg hover:bg-brand-blue hover:text-white transition-all active:scale-95">
+            <a href="tel:0478883337" className="border-2 border-brand-blue text-brand-blue px-10 py-5 rounded-brand font-bold text-lg hover:bg-brand-blue hover:text-white transition-all active:scale-95 text-center">
               Call Us Directly →
-            </button>
+            </a>
           </div>
         </div>
       </section>

@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { Link } from "react-router-dom";
 
 const FUNDING_CATEGORIES = [
   {
@@ -72,9 +73,9 @@ export default function WhatWeFund() {
               Many of our most successful transactions start as "non-standard" enquiries. Our team is happy to discuss the specifics of your transaction and provide a quick read on appetite.
            </p>
            <div className="flex justify-center">
-              <button className="bg-brand-blue text-white px-10 py-5 rounded-brand font-bold text-lg hover:shadow-lg transition-all active:scale-95">
+              <Link to="/submit-a-deal" className="bg-brand-blue text-white px-10 py-5 rounded-brand font-bold text-lg hover:shadow-lg transition-all active:scale-95 text-center">
                 Discuss Your Scenario
-              </button>
+              </Link>
            </div>
         </div>
       </section>
