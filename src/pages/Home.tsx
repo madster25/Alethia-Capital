@@ -68,7 +68,7 @@ export default function Home() {
           >
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-brand-gold mb-stack-sm block">Our Principle</span>
             <h2 className="text-3xl md:text-4xl text-brand-blue mb-stack-md">
-              The Alethia Principle: Seeing Clearly.
+               The Alethia Principle:<br />Seeing Clearly.
             </h2>
             <p className="text-brand-text/80 leading-relaxed mb-6">
               Alethia (ἀλήθεια) is an ancient Greek concept meaning truth, disclosure and the uncovering of what is real.
@@ -80,7 +80,7 @@ export default function Home() {
               Where other lenders see a reason to decline, we may see a transaction with genuine merit.
             </p>
             <p className="text-brand-text font-bold leading-relaxed">
-              Clarity. Discipline. Transparency. Execution. That is the Alethia approach.
+              Clarity in assessment. Discipline in judgment. Transparency in communication. Execution in delivery.
             </p>
           </motion.div>
           

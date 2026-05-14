@@ -1,6 +1,43 @@
+import React, { useState } from "react";
 import { motion } from "motion/react";
 
 export default function SubmitDeal() {
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    // In a real production environment, you would send this to a backend API
+    // that handles email delivery (e.g., using SendGrid, Postmark, etc.)
+    // or store it in a database like Firestore.
+    setSubmitted(true);
+  };
+
+  if (submitted) {
+    return (
+      <div className="flex flex-col min-h-[60vh] justify-center items-center px-6">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="bg-white p-12 rounded-brand shadow-xl border border-brand-navy/10 text-center max-w-2xl"
+        >
+          <div className="w-16 h-16 bg-brand-gold/20 rounded-full flex items-center justify-center mx-auto mb-6">
+            <span className="text-3xl text-brand-gold">✓</span>
+          </div>
+          <h2 className="text-2xl font-bold text-brand-blue mb-4">Submission Received</h2>
+          <p className="text-brand-text/80 text-lg">
+            Thank you. Your transaction has been submitted and our team will review it shortly.
+          </p>
+          <button 
+            onClick={() => setSubmitted(false)}
+            className="mt-8 text-brand-blue font-bold hover:text-brand-gold transition-colors flex items-center justify-center gap-2 mx-auto"
+          >
+            ← Submit another deal
+          </button>
+        </motion.div>
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-col">
       <header className="bg-brand-navy py-stack-xl text-center">
@@ -44,22 +81,12 @@ export default function SubmitDeal() {
           {/* Form Area */}
           <div className="lg:col-span-8 bg-white p-8 md:p-12 rounded-brand shadow-lg border border-brand-navy/10">
             <div className="mb-stack-lg border-b border-brand-navy/10 pb-6 text-center lg:text-left">
-              <p className="text-brand-blue font-bold text-lg mb-2">
+              <p className="text-brand-blue font-bold text-lg">
                 Submit a transaction for review and our team will come back to you with a clear response.
-              </p>
-              <p className="text-brand-navy/60 font-medium">
-                All enquiries should be sent to <a href="mailto:info@alethiacapital.com.au" className="text-brand-gold hover:underline">info@alethiacapital.com.au</a>
               </p>
             </div>
 
-            <form className="space-y-stack-lg" onSubmit={(e) => {
-              e.preventDefault();
-              const formData = new FormData(e.currentTarget);
-              const name = formData.get('name');
-              const company = formData.get('company');
-              const body = `Name: ${name}\nCompany: ${company}\nTransaction details follow in email...`;
-              window.location.href = `mailto:info@alethiacapital.com.au?subject=New Deal Submission - ${name}&body=${encodeURIComponent(body)}`;
-            }}>
+            <form className="space-y-stack-lg" onSubmit={handleSubmit}>
               {/* Section 1 */}
               <div className="space-y-stack-md">
                  <h3 className="text-xl font-bold text-brand-blue uppercase tracking-widest border-b border-brand-navy/10 pb-2">1. Your Details</h3>
@@ -74,11 +101,11 @@ export default function SubmitDeal() {
                     </div>
                     <div className="space-y-2">
                        <label className="text-xs font-bold uppercase tracking-wider text-brand-text/60">Email</label>
-                       <input type="email" className="w-full bg-brand-surface border border-brand-navy/10 rounded p-3 px-4 focus:border-brand-gold outline-none transition-colors" placeholder="john@example.com" />
+                       <input name="email" type="email" className="w-full bg-brand-surface border border-brand-navy/10 rounded p-3 px-4 focus:border-brand-gold outline-none transition-colors" placeholder="john@example.com" required />
                     </div>
                     <div className="space-y-2">
                        <label className="text-xs font-bold uppercase tracking-wider text-brand-text/60">Phone</label>
-                       <input type="tel" className="w-full bg-brand-surface border border-brand-navy/10 rounded p-3 px-4 focus:border-brand-gold outline-none transition-colors" placeholder="0478 883 337" />
+                       <input name="phone" type="tel" className="w-full bg-brand-surface border border-brand-navy/10 rounded p-3 px-4 focus:border-brand-gold outline-none transition-colors" placeholder="0478 883 337" required />
                     </div>
                  </div>
               </div>
@@ -89,19 +116,19 @@ export default function SubmitDeal() {
                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2 md:col-span-2">
                        <label className="text-xs font-bold uppercase tracking-wider text-brand-text/60">Security Address</label>
-                       <input type="text" className="w-full bg-brand-surface border border-brand-navy/10 rounded p-3 px-4 focus:border-brand-gold outline-none transition-colors" placeholder="Full property address" />
+                       <input name="address" type="text" className="w-full bg-brand-surface border border-brand-navy/10 rounded p-3 px-4 focus:border-brand-gold outline-none transition-colors" placeholder="Full property address" required />
                     </div>
                     <div className="space-y-2">
                        <label className="text-xs font-bold uppercase tracking-wider text-brand-text/60">Loan Amount Required</label>
-                       <input type="text" className="w-full bg-brand-surface border border-brand-navy/10 rounded p-3 px-4 focus:border-brand-gold outline-none transition-colors" placeholder="$0.00" />
+                       <input name="amount" type="text" className="w-full bg-brand-surface border border-brand-navy/10 rounded p-3 px-4 focus:border-brand-gold outline-none transition-colors" placeholder="$0.00" required />
                     </div>
                     <div className="space-y-2">
                        <label className="text-xs font-bold uppercase tracking-wider text-brand-text/60">Estimated LVR (%)</label>
-                       <input type="text" className="w-full bg-brand-surface border border-brand-navy/10 rounded p-3 px-4 focus:border-brand-gold outline-none transition-colors" placeholder="e.g. 65%" />
+                       <input name="lvr" type="text" className="w-full bg-brand-surface border border-brand-navy/10 rounded p-3 px-4 focus:border-brand-gold outline-none transition-colors" placeholder="e.g. 65%" required />
                     </div>
                     <div className="space-y-2 md:col-span-2">
                        <label className="text-xs font-bold uppercase tracking-wider text-brand-text/60">The Exit Strategy</label>
-                       <textarea className="w-full bg-brand-surface border border-brand-navy/10 rounded p-3 px-4 focus:border-brand-gold outline-none transition-colors resize-none" rows={3} placeholder="How will the loan be repaid?"></textarea>
+                       <textarea name="exit" className="w-full bg-brand-surface border border-brand-navy/10 rounded p-3 px-4 focus:border-brand-gold outline-none transition-colors resize-none" rows={3} placeholder="How will the loan be repaid?" required></textarea>
                     </div>
                  </div>
               </div>
@@ -111,11 +138,8 @@ export default function SubmitDeal() {
                    type="submit"
                    className="w-full bg-brand-blue text-white py-5 rounded-brand font-bold text-lg hover:shadow-lg transition-all active:scale-[0.98] uppercase tracking-widest"
                  >
-                    Submit Deal for Review →
+                    Submit Transaction
                  </button>
-                 <p className="text-center text-xs text-brand-text/50 mt-4 italic">
-                    Your email client will open with the details to info@alethiacapital.com.au
-                 </p>
               </div>
             </form>
           </div>
