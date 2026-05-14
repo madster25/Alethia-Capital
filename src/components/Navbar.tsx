@@ -2,14 +2,15 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
-import { IMAGES } from "../constants";
+import { Logo } from "./Logo";
 import { cn } from "../lib/utils";
 
 const NAV_LINKS = [
   { name: "For Brokers", path: "/for-brokers" },
   { name: "For Borrowers", path: "/for-borrowers" },
   { name: "What We Fund", path: "/what-we-fund" },
-  { name: "About", path: "/about" },
+  { name: "Specialised Funding", path: "/specialised-funding" },
+  { name: "About Us", path: "/about" },
 ];
 
 export function Navbar() {
@@ -34,26 +35,22 @@ export function Navbar() {
   }, [isOpen]);
 
   return (
-    <nav className="sticky top-0 z-50 bg-brand-surface border-b border-brand-navy/10 py-4 shadow-sm">
+    <nav className="sticky top-0 z-50 bg-brand-surface border-b border-brand-navy/10 py-3 shadow-sm">
       <div className="max-container flex items-center justify-between">
-        <Link to="/" className="flex items-center">
-          <img 
-            src={IMAGES.HORIZONTAL_LOGO} 
-            alt="Alethia Capital" 
-            className="h-12 w-auto object-contain"
-          />
+        <Link to="/" className="flex items-center transition-opacity hover:opacity-90">
+          <Logo variant="horizontal" className="py-1" />
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-5 xl:gap-7">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.path}
               to={link.path}
               className={cn(
-                "text-sm font-bold uppercase tracking-widest transition-colors hover:text-brand-gold",
+                "text-[12px] xl:text-[13px] font-bold uppercase tracking-wide transition-colors hover:text-brand-gold whitespace-nowrap",
                 location.pathname === link.path 
-                  ? "text-brand-blue border-b-2 border-brand-gold pb-1" 
+                  ? "text-brand-blue border-b-2 border-brand-gold pb-0.5" 
                   : "text-brand-navy/70"
               )}
             >
@@ -62,7 +59,7 @@ export function Navbar() {
           ))}
           <Link
             to="/submit-a-deal"
-            className="bg-brand-blue text-white px-6 py-2.5 rounded-brand font-bold uppercase tracking-wider text-xs transition-all hover:bg-brand-navy active:scale-95 shadow-sm"
+            className="bg-brand-blue text-white px-5 py-2 rounded-brand font-bold uppercase tracking-wider text-[11px] xl:text-[12px] transition-all hover:bg-brand-navy active:scale-95 shadow-sm whitespace-nowrap ml-2"
           >
             Submit a Deal
           </Link>
@@ -70,7 +67,7 @@ export function Navbar() {
 
         {/* Mobile menu button */}
         <button 
-          className="md:hidden text-brand-navy p-2 hover:bg-brand-navy/5 rounded-full transition-colors"
+          className="lg:hidden text-brand-navy p-2 hover:bg-brand-navy/5 rounded-full transition-colors"
           onClick={() => setIsOpen(!isOpen)}
           aria-label={isOpen ? "Close menu" : "Open menu"}
         >
@@ -86,7 +83,7 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 top-[73px] z-40 bg-brand-surface md:hidden overflow-y-auto"
+            className="fixed inset-0 top-[65px] z-40 bg-brand-surface lg:hidden overflow-y-auto"
           >
             <div className="flex flex-col p-6 space-y-6">
               {NAV_LINKS.map((link) => (
@@ -94,7 +91,7 @@ export function Navbar() {
                   key={link.path}
                   to={link.path}
                   className={cn(
-                    "text-lg font-bold uppercase tracking-widest py-2 border-b border-brand-navy/5",
+                    "text-lg font-bold uppercase tracking-wider py-2 border-b border-brand-navy/5",
                     location.pathname === link.path 
                       ? "text-brand-gold" 
                       : "text-brand-navy"

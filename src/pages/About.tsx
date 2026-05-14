@@ -45,7 +45,7 @@ export default function About() {
       <section className="py-stack-xl bg-white">
         <div className="max-container max-w-4xl space-y-16">
           <div className="group">
-            <h2 className="text-3xl text-brand-blue mb-4 group-hover:text-brand-gold transition-colors">Capital Base</h2>
+            <h2 className="text-3xl text-brand-blue mb-4 group-hover:text-brand-gold transition-colors">Financial Strength</h2>
             <p className="text-brand-text/70 leading-relaxed">
               Alethia Capital is backed by a disciplined group of sophisticated capital partners, including warehouse lenders, family offices and institutional investors.
             </p>

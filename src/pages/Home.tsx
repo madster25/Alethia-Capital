@@ -1,6 +1,5 @@
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
-import { IMAGES } from "../constants";
 
 export default function Home() {
   return (

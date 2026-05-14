@@ -13,6 +13,7 @@ import DiscussSituation from "./pages/DiscussSituation";
 import ForBorrowers from "./pages/ForBorrowers";
 import ForBrokers from "./pages/ForBrokers";
 import Home from "./pages/Home";
+import SpecialisedFunding from "./pages/SpecialisedFunding";
 import SubmitDeal from "./pages/SubmitDeal";
 import WhatWeFund from "./pages/WhatWeFund";
 
@@ -39,6 +40,7 @@ export default function App() {
             <Route path="/for-brokers" element={<ForBrokers />} />
             <Route path="/for-borrowers" element={<ForBorrowers />} />
             <Route path="/what-we-fund" element={<WhatWeFund />} />
+            <Route path="/specialised-funding" element={<SpecialisedFunding />} />
             <Route path="/about" element={<About />} />
             <Route path="/submit-a-deal" element={<SubmitDeal />} />
             <Route path="/discuss-your-situation" element={<DiscussSituation />} />
